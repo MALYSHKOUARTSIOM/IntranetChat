@@ -1,0 +1,55 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Сборочные директории CLion
+cmake-build-*/
+
+# Файлы CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ninja build system
+*.ninja
+.ninja_deps
+.ninja_log
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Файлы CLion
+.idea/
+*.iml
+
+# Автогенерированные файлы Qt (если используешь)
+*.qrc
+*.moc
+*.obj
+*.o
+*.so
+*.dll
+*.exe
+
+# Кэш и конфигурации
+*.json
+*.txt
+cache-*/
+
+# Git
+*.orig
+*.rej
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific
+.DS_Store
+Thumbs.db
