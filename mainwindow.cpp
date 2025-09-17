@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     connect(ui->saveNicknameButton, &QPushButton::clicked, this, &MainWindow::handleSaveNickname);
 
-
     connect(ui->createButton, &QPushButton::clicked, this, &MainWindow::handleCreateServer);
     connect(ui->connectButton, &QPushButton::clicked, this, &MainWindow::handleConnectToServer);
 

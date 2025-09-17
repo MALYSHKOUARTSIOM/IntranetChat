@@ -25,7 +25,6 @@ target_link_libraries(intranetChat
         Qt::Widgets
         Qt::Network
 )
-
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     add_custom_command(TARGET intranetChat POST_BUILD
             COMMAND Qt6::windeployqt
