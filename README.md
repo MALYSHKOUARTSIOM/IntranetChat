@@ -16,7 +16,9 @@
    
   Мокап интерфейса
 
-![Мокап интерфейса IntranetChat](mockup.png)
+![Мокап интерфейса IntranetChat](docs/mockups/chat_process.png)
+![Мокап интерфейса IntranetChat](docs/mockups/client_mode.png)
+![Мокап интерфейса IntranetChat](docs/mockups/server_mode.png)
 
 ## 🛠️ Технологический стек
 
