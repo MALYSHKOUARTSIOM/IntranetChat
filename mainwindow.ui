@@ -11,90 +11,89 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Локальный Мессенджер</string>
+   <string>IntranetChat</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <!-- stretch задается в C++ коде -->
     <item>
      <widget class="QWidget" name="settings_panel" native="true">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QLabel" name="label_nickname">
-         <property name="text">
-          <string>Ваш никнейм:</string>
-         </property>
+         <property name="text"><string>Ваш никнейм:</string></property>
         </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_nickname">
          <item>
           <widget class="QLineEdit" name="nicknameLineEdit">
-           <property name="placeholderText">
-            <string>Введите ник</string>
-           </property>
+           <property name="placeholderText"><string>Введите ник</string></property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="saveNicknameButton">
-           <property name="text">
-            <string>Сохранить</string>
-           </property>
+           <property name="text"><string>Сохранить</string></property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox">
-         <property name="title">
-          <string>Режим работы</string>
-         </property>
+         <property name="title"><string>Режим работы</string></property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QRadioButton" name="serverRadioButton">
-            <property name="text">
-             <string>Сервер</string>
-            </property>
+            <property name="text"><string>Сервер</string></property>
            </widget>
           </item>
           <item>
            <widget class="QRadioButton" name="clientRadioButton">
-            <property name="text">
-             <string>Клиент</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
+            <property name="text"><string>Клиент</string></property>
+            <property name="checked"><bool>true</bool></property>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
        <item>
-        <widget class="QStackedWidget" name="stackedWidget">
+        <widget class="QStackedWidget" name="connectionStackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page_server">
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
             <widget class="QLabel" name="ipAddressLabel">
-             <property name="text">
-              <string>Ваш IP в сети: будет здесь</string>
-             </property>
-             <property name="textInteractionFlags">
-              <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
-             </property>
+             <property name="text"><string>Ваш IP в сети: будет здесь</string></property>
+             <property name="textInteractionFlags"><set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set></property>
             </widget>
            </item>
            <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_server_port">
+             <item>
+              <widget class="QLabel" name="label_server_port">
+               <property name="text"><string>Порт:</string></property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="serverPortLineEdit"/>
+             </item>
+            </layout>
+           </item>
+           <item>
             <widget class="QPushButton" name="createButton">
-             <property name="text">
-              <string>Создать диалог</string>
-             </property>
+             <property name="text"><string>Создать диалог</string></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="shutdownServerButton">
+             <property name="text"><string>Выключить сервер</string></property>
             </widget>
            </item>
           </layout>
          </widget>
+         <!-- ==================== ИЗМЕНЕНИЯ ЗДЕСЬ ==================== -->
          <widget class="QWidget" name="page_client">
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
@@ -112,20 +111,38 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="connectButton">
+            <widget class="QLabel" name="label">
              <property name="text">
-              <string>Подключиться</string>
+              <string>Порт:</string>
              </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="clientPortLineEdit">
+             <property name="placeholderText">
+              <string>Введите порт</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="connectButton">
+             <property name="text"><string>Подключиться</string></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="disconnectClientButton">
+             <property name="text"><string>Отключиться</string></property>
             </widget>
            </item>
           </layout>
          </widget>
+         <!-- ================= КОНЕЦ ИЗМЕНЕНИЙ ================= -->
         </widget>
        </item>
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -141,23 +158,17 @@
     <item>
      <widget class="QWidget" name="chat_panel" native="true">
       <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <widget class="QTextBrowser" name="chatBrowser"/>
-       </item>
+       <item><widget class="QTextBrowser" name="chatBrowser"/></item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QLineEdit" name="messageLineEdit">
-           <property name="placeholderText">
-            <string>Введите ваше сообщение...</string>
-           </property>
+           <property name="placeholderText"><string>Введите ваше сообщение...</string></property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="sendButton">
-           <property name="text">
-            <string>Отправить</string>
-           </property>
+           <property name="text"><string>Отправить</string></property>
           </widget>
          </item>
         </layout>
@@ -172,4 +183,3 @@
  <resources/>
  <connections/>
 </ui>
-
