@@ -1,27 +1,29 @@
 # IntranetChat - Sequence Diagrams
 
 ## Overview
-These diagrams visualize the interaction between the User, the Main Window Interface, and the low-level Network Classes over time.
+These diagrams visualize the interaction between the User, the Main Window Interface, and the system components (Network, Storage) over time for each Use Case.
 
-## 1. Connection Sequence (Client Side)
-How the application handles a user request to join a chat.
+## UC1: Save Nickname
+This sequence shows how the application persists user settings to the local file system.
 
-![Connection Sequence](/docs/schema/sequence_connect.svg)
+![UC1 Sequence](/docs/schema/sequence_uc1_nick.png)
 
-### Flow:
-1.  User initiates the connection.
-2.  `MainWindow` instantiates a new `QTcpSocket`.
-3.  The socket performs the TCP Handshake with the remote server.
-4.  Upon success, Qt emits signals that update the UI state to "Connected".
+## UC2: Create Server
+The process of initializing the `QTcpServer` and querying the operating system for the local network address.
 
-## 2. Sending a Message
-The process of transforming user input into a network packet.
+![UC2 Sequence](/docs/schema/sequence_uc2_server.png)
 
-![Sending Sequence](/docs/schema/sequence_send.svg)
+## UC3: Connect to Server
+The TCP handshake process initiated by the Client to join a chat session.
 
-### Flow:
-1.  User submits text.
-2.  The system captures the exact time.
-3.  Data is encoded (Base64) to ensure transmission safety.
-4.  The raw bytes are written to the socket.
-5.  The UI updates immediately to show the user's own message, providing instant feedback (Optimistic UI).
+![UC3 Sequence](/docs/schema/sequence_uc3_connect.png)
+
+## UC4: Send Message
+How user input is transformed into a network packet using Base64 encoding and transmitted via the socket.
+
+![UC4 Sequence](/docs/schema/sequence_uc4_send.png)
+
+## UC5: Receive Message
+The asynchronous handling of incoming data signals (`readyRead`), buffer processing, decoding, and UI update.
+
+![UC5 Sequence](/docs/schema/sequence_uc5_receive.png)
