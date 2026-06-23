@@ -38,7 +38,7 @@ private slots:
     void displaySocketError(QAbstractSocket::SocketError socketError);
 
 private:
-    // ИЗМЕНЕНИЕ: Перечисление для типов сообщений
+
     enum MessageType {
         MyMessage,
         OtherMessage,
@@ -52,7 +52,6 @@ private:
     void broadcastMessage(const QByteArray &data, QTcpSocket *excludeClient = nullptr);
     void processBuffer(QTcpSocket* socket);
 
-    // ИЗМЕНЕНИЕ: Сигнатура функции обновлена
     void appendToChat(const QString& text, MessageType type);
 
 
